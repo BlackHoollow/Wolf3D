@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/24 17:48:15 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/24 18:16:50 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,24 @@
 # include <mlx.h>
 # include "libft.h"
 
-# define HAUTEUR 1000
-# define LARGEUR 1000
+# define HAUTEUR 384
+# define LARGEUR 512
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_UP 126
 # define KEY_DOWN 125
+
+typedef struct	s_player
+{
+	double		posx;
+	double		posy;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	double		time;
+	double		old_time;
+}				t_player;
 
 typedef struct	s_map
 {
@@ -45,6 +57,7 @@ typedef struct	s_param
 	int			size_line;
 	int			endian;
 	t_map		map;
+	t_player	player;
 }				t_param;
 
 /*

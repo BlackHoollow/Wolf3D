@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/24 17:47:23 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:57:58 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		main(int argc, char **argv)
 	argc = argc + 0;
 	param.mlx = mlx_init();
 	parsing(argv[1], &map);
+	param.map = map;
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "wolf");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
 	mlx_key_hook(param.win, my_key_func, &param);
