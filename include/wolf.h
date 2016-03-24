@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/23 21:02:24 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:48:15 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@
 # define KEY_UP 126
 # define KEY_DOWN 125
 
+typedef struct	s_map
+{
+	int			nb_col;
+	int			nb_line;
+	int			**tab;
+}				t_map;
+
 typedef struct	s_param
 {
 	void		*mlx;
@@ -37,6 +44,7 @@ typedef struct	s_param
 	int			bits;
 	int			size_line;
 	int			endian;
+	t_map		map;
 }				t_param;
 
 /*
@@ -44,8 +52,9 @@ typedef struct	s_param
 */
 
 int				my_key_func(int keycode, t_param *param);
+int				repeat_key(int key, t_param *param);
 void			get_data(t_param *param);
-int				main(void);
+int				main(int argc, char **argv);
 
 /*
 **	utility.c
@@ -53,5 +62,13 @@ int				main(void);
 
 void			ft_exit(void);
 void			draw_px(int x, int y, int color, t_param *param);
+
+/*
+**	parse2.c
+*/
+
+t_map			*count_line_col(int fd, t_map *map);
+t_map			*split_tab(t_map *map, int fd);
+void			parsing(char *argv, t_map *map);
 
 #endif
