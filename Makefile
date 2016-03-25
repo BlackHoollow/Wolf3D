@@ -6,11 +6,11 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/24 17:47:47 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/25 15:28:09 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = core.c utility.c parse2.c
+SRC_NAME = core.c utility.c parse2.c wolf.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
 

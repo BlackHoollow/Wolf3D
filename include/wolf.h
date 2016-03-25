@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/24 18:16:50 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 15:27:56 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define KEY_RIGHT 124
 # define KEY_UP 126
 # define KEY_DOWN 125
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define WHITE 0x000000
+# define YELLOW 0xFFFF00
 
 typedef struct	s_player
 {
@@ -36,8 +41,6 @@ typedef struct	s_player
 	double		diry;
 	double		planex;
 	double		planey;
-	double		time;
-	double		old_time;
 }				t_player;
 
 typedef struct	s_map
@@ -83,5 +86,12 @@ void			draw_px(int x, int y, int color, t_param *param);
 t_map			*count_line_col(int fd, t_map *map);
 t_map			*split_tab(t_map *map, int fd);
 void			parsing(char *argv, t_map *map);
+
+/*
+**	wolf.c
+*/
+
+void			init_player(t_param *param);
+void			raycasting(t_param *param, int key);
 
 #endif
