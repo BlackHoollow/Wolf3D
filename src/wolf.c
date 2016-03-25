@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 16:09:40 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:33:35 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init_player(t_param *param)
 	player.planey = 0.66;
 	param->player = player;
 }
+		#include <stdio.h>
+// baise
 
 void	raycasting(t_param *param, int key)
 {
@@ -135,17 +137,17 @@ void	raycasting(t_param *param, int key)
 			color = WHITE;
 		else
 			color = YELLOW;
-		if (side == 1)
-			color = color / 2;
+		//if (side == 1)
+		//	color = color / 2;
 		tmp = drawstart;
+		printf("tmp: %d\ndrawstart%d\n\n", tmp, drawstart);
 		while (tmp < drawend)
 		{
-			draw_px(x, tmp, 0x000000, param);
+			draw_px(x, tmp, 0xFFFFFF, param);
 			tmp++;
 		}
 		x++;
 	}
-	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	//8 time et frametime non faite
 	//9
 	if (key == KEY_UP)

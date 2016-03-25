@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 16:13:58 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:24:13 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ int		my_key_func(int keycode, t_param *param)
 
 int		repeat_key(int key, t_param *param)
 {
-	(void)key;
-//	raycasting(param, key);
-	mlx_pixel_put(param->mlx, param->win, 10, 10, 0x000000);
-	//mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
+	raycasting(param, key);
+	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	return (0);
 }
 
@@ -44,7 +42,6 @@ int		main(int argc, char **argv)
 	param.mlx = mlx_init();
 	parsing(argv[1], &map);
 	param.map = map;
-	init_player(&param);
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "wolf");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
 	mlx_key_hook(param.win, my_key_func, &param);

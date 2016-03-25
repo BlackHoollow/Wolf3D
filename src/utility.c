@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:26:51 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 16:11:13 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 16:20:38 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_exit(void)
 
 void	draw_px(int x, int y, int color, t_param *param)
 {
-	ft_putendl("debut");
 	get_data(param);
 	*(int *)(unsigned long)(param->str_img + (param->size_line * y) +
 			(x * param->bits / 8)) = color;
-	ft_putendl("fin");
 }
