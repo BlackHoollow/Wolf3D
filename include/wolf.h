@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 15:27:56 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 18:32:28 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
-# define WHITE 0x000000
+# define WHITE 0xFFFFFF
 # define YELLOW 0xFFFF00
 
 typedef struct	s_player
