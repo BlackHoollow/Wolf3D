@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 16:33:35 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/25 18:08:55 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_player(t_param *param)
 	param->player = player;
 }
 		#include <stdio.h>
-// baise
+// oui
 
 void	raycasting(t_param *param, int key)
 {
@@ -140,7 +140,7 @@ void	raycasting(t_param *param, int key)
 		//if (side == 1)
 		//	color = color / 2;
 		tmp = drawstart;
-		printf("tmp: %d\ndrawstart%d\n\n", tmp, drawstart);
+		printf("tmp: %d\ndrawend%d\n\n", tmp, drawstart);
 		while (tmp < drawend)
 		{
 			draw_px(x, tmp, 0xFFFFFF, param);
