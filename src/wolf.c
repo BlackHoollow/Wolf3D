@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/28 15:45:13 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/28 16:26:29 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	raycasting(t_param *param, int key)
 	int		color;
 	int		tmp;
 
-	init_player(param);
 	x = 0;
 	while (x < LARGEUR)
 	{

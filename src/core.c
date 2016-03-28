@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/28 16:01:44 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/28 16:47:17 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		main(int argc, char **argv)
 	param.map = map;
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "wolf");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
+	init_player(&param);
 	raycasting(&param, 1);
 	mlx_put_image_to_window(param.mlx, param.win, param.img, 0, 0);
 	mlx_hook(param.win, 2, 3, repeat_key, &param);
