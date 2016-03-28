@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 18:08:55 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/28 15:45:13 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_player(t_param *param)
 
 void	raycasting(t_param *param, int key)
 {
+	key = key + 0;
 	int		x;
 	double	camerax;
 	double	rayposx;
@@ -55,15 +56,12 @@ void	raycasting(t_param *param, int key)
 	int		color;
 	int		tmp;
 
-	double	olddirx;
-	double	oldplanex;
-
 	init_player(param);
 	x = 0;
-	while (x < param->map.nb_col)
+	while (x < LARGEUR)
 	{
 		//1
-		camerax = 2 * x / (double)(param->map.nb_col) - 1;
+		camerax = 2 * x / (double)(LARGEUR) - 1;
 		rayposx = param->player.posx;
 		rayposy = param->player.posy;
 		raydirx = param->player.dirx + param->player.planex * camerax;
@@ -71,8 +69,8 @@ void	raycasting(t_param *param, int key)
 		//2
 		mapx = (int)(rayposx);
 		mapy = (int)(rayposy);
-		deltadistx = ft_sqrt(1 + (raydiry * raydiry) / (raydirx * raydirx));
-		deltadisty = ft_sqrt(1 + (raydirx * raydirx) / (raydiry * raydiry));
+		deltadistx = sqrt(1 + (raydiry * raydiry) / (raydirx * raydirx));
+		deltadisty = sqrt(1 + (raydirx * raydirx) / (raydiry * raydiry));
 		hit = 0;
 		//3
 		if (raydirx < 0)
@@ -119,13 +117,13 @@ void	raycasting(t_param *param, int key)
 		else	
 			perpwalldist = (mapy - rayposy + (1 - stepy) / 2) / raydiry;
 		//6
-		lineheight = (int)(param->map.nb_line / perpwalldist);
-		drawstart = -lineheight / 2 + param->map.nb_line / 2;
+		lineheight = (int)(HAUTEUR / perpwalldist);
+		drawstart = -lineheight / 2 + HAUTEUR / 2;
 		if (drawstart < 0)
 			drawstart = 0;
-		drawend = lineheight / 2 + param->map.nb_line / 2;
-		if (drawend >= param->map.nb_line)
-			drawend = param->map.nb_line - 1;
+		drawend = lineheight / 2 + HAUTEUR / 2;
+		if (drawend >= HAUTEUR)
+			drawend = HAUTEUR - 1;
 		//7
 		if (param->map.tab[mapx][mapy] == 1)
 			color = RED;
@@ -137,27 +135,26 @@ void	raycasting(t_param *param, int key)
 			color = WHITE;
 		else
 			color = YELLOW;
-		//if (side == 1)
-		//	color = color / 2;
+		if (side == 1)
+			color = color / 2;
 		tmp = drawstart;
-		printf("tmp: %d\ndrawend%d\n\n", tmp, drawstart);
 		while (tmp < drawend)
 		{
-			draw_px(x, tmp, 0xFFFFFF, param);
+			draw_px(x, tmp, color, param);
 			tmp++;
 		}
 		x++;
 	}
 	//8 time et frametime non faite
 	//9
-	if (key == KEY_UP)
+/*	if (key == KEY_UP)
 	{
 		if (param->map.tab[(int)(param->player.posx + param->player.dirx)][(int)(param->player.posy)] == 0)
 			param->player.posx += param->player.dirx;
 		if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy + param->player.diry)] == 0)
 			param->player.posy += param->player.diry;
 	}
-	if (key == KEY_DOWN)
+	else if (key == KEY_DOWN)
 	{
 		if (param->map.tab[(int)(param->player.posx - param->player.dirx)][(int)(param->player.posy)] == 0)
 			param->player.posx -= param->player.dirx;
@@ -173,7 +170,7 @@ void	raycasting(t_param *param, int key)
 		param->player.planex = param->player.planex - param->player.planey;
 		param->player.planey = oldplanex + param->player.planey;
 	}
-	if (key == KEY_LEFT)
+	else if (key == KEY_LEFT)
 	{
 		olddirx = param->player.dirx;
 		param->player.dirx = param->player.dirx - param->player.diry;
@@ -181,5 +178,5 @@ void	raycasting(t_param *param, int key)
 		oldplanex = param->player.planex;
 		param->player.planex = param->player.planex - param->player.planey;
 		param->player.planey = oldplanex + param->player.planey;
-	}
+	}*/
 }

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/25 18:32:28 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/28 15:44:40 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct	s_param
 **	core.c
 */
 
-int				my_key_func(int keycode, t_param *param);
 int				repeat_key(int key, t_param *param);
 void			get_data(t_param *param);
 int				main(int argc, char **argv);
