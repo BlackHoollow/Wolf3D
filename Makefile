@@ -6,7 +6,7 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/25 15:28:09 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/29 16:08:23 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ      = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INC      = $(addprefix -I, $(INC_PATH))
 LIB      = $(addprefix -L, $(LIB_PATH))
 
-NAME     = wolf
+NAME     = wolf3d
 CC       = gcc
 
 CFLAGS = -Wall -Wextra -Werror

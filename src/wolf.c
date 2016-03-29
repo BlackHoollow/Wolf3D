@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/28 16:26:29 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 16:27:11 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	init_player(t_param *param)
 {
 	t_player	player;
 
-	player.posx = 22;
-	player.posy = 12;
+	player.posx = 1;
+	player.posy = 1;
 	player.dirx = -1;
 	player.diry = 0;
 	player.planex = 0;
@@ -131,51 +131,27 @@ void	raycasting(t_param *param, int key)
 		else if (param->map.tab[mapx][mapy] == 3)
 			color = BLUE;
 		else if (param->map.tab[mapx][mapy] == 4)
-			color = WHITE;
+			color = PURPLE;
 		else
 			color = YELLOW;
 		if (side == 1)
 			color = color / 2;
-		tmp = drawstart;
+		tmp = 0;
+		while (tmp < drawstart)
+		{
+			draw_px(x, tmp, CYAN, param);
+			tmp++;
+		}
 		while (tmp < drawend)
 		{
 			draw_px(x, tmp, color, param);
 			tmp++;
 		}
+		while (tmp < HAUTEUR)
+		{
+			draw_px(x, tmp, 0x000000, param);
+			tmp++;
+		}	
 		x++;
 	}
-	//8 time et frametime non faite
-	//9
-/*	if (key == KEY_UP)
-	{
-		if (param->map.tab[(int)(param->player.posx + param->player.dirx)][(int)(param->player.posy)] == 0)
-			param->player.posx += param->player.dirx;
-		if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy + param->player.diry)] == 0)
-			param->player.posy += param->player.diry;
-	}
-	else if (key == KEY_DOWN)
-	{
-		if (param->map.tab[(int)(param->player.posx - param->player.dirx)][(int)(param->player.posy)] == 0)
-			param->player.posx -= param->player.dirx;
-		if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy - param->player.diry)] == 0)
-			param->player.posy -= param->player.diry;
-	}
-	if (key == KEY_RIGHT)
-	{
-		olddirx = param->player.dirx;
-		param->player.dirx = param->player.dirx - param->player.diry;
-		param->player.diry = olddirx + param->player.diry;
-		oldplanex = param->player.planex;
-		param->player.planex = param->player.planex - param->player.planey;
-		param->player.planey = oldplanex + param->player.planey;
-	}
-	else if (key == KEY_LEFT)
-	{
-		olddirx = param->player.dirx;
-		param->player.dirx = param->player.dirx - param->player.diry;
-		param->player.diry = olddirx + param->player.diry;
-		oldplanex = param->player.planex;
-		param->player.planex = param->player.planex - param->player.planey;
-		param->player.planey = oldplanex + param->player.planey;
-	}*/
 }

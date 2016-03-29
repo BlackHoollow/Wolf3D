@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/28 15:44:40 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 16:15:28 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <mlx.h>
 # include "libft.h"
 
-# define HAUTEUR 384
-# define LARGEUR 512
+# define HAUTEUR 1000
+# define LARGEUR 1000
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_UP 126
@@ -32,13 +32,19 @@
 # define BLUE 0x0000FF
 # define WHITE 0xFFFFFF
 # define YELLOW 0xFFFF00
+# define PURPLE 0x800080
+# define CYAN 0x33FFFF
+# define MVSPEED 0.5
+# define ROTSPEED 0.2
 
 typedef struct	s_player
 {
 	double		posx;
 	double		posy;
+	double		olddirx;
 	double		dirx;
 	double		diry;
+	double		oldplanex;
 	double		planex;
 	double		planey;
 }				t_player;
