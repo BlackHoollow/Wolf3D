@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 16:15:28 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 18:23:19 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct	s_param
 	char		*str_img;
 	int			bits;
 	int			size_line;
+	double		startx;
+	double		starty;
 	int			endian;
 	t_map		map;
 	t_player	player;
@@ -90,13 +92,14 @@ void			draw_px(int x, int y, int color, t_param *param);
 
 t_map			*count_line_col(int fd, t_map *map);
 t_map			*split_tab(t_map *map, int fd);
-void			parsing(char *argv, t_map *map);
+void			define_start(t_param *param, t_map *map);
+void			parsing(char *argv, t_map *map, t_param *param);
 
 /*
 **	wolf.c
 */
 
 void			init_player(t_param *param);
-void			raycasting(t_param *param, int key);
+void			raycasting(t_param *param);
 
 #endif

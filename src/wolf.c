@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 16:27:11 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 18:23:06 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ void	init_player(t_param *param)
 {
 	t_player	player;
 
-	player.posx = 1;
-	player.posy = 1;
+	player.posx = param->startx;
+	player.posy = param->starty;
 	player.dirx = -1;
 	player.diry = 0;
 	player.planex = 0;
 	player.planey = 0.66;
 	param->player = player;
 }
-		#include <stdio.h>
-// oui
 
-void	raycasting(t_param *param, int key)
+void	raycasting(t_param *param)
 {
-	key = key + 0;
 	int		x;
 	double	camerax;
 	double	rayposx;

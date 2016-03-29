@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 16:28:12 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 18:23:16 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		repeat_key(int key, t_param *param)
 		param->player.planex = param->player.planex * cos(ROTSPEED) - param->player.planey * sin(ROTSPEED);
 		param->player.planey = param->player.oldplanex * sin(ROTSPEED) + param->player.planey * cos(ROTSPEED);
 	}
-	raycasting(param, key);
+	raycasting(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	return (0);
 }
@@ -66,12 +66,12 @@ int		main(int argc, char **argv)
 
 	argc = argc + 0;
 	param.mlx = mlx_init();
-	parsing(argv[1], &map);
+	parsing(argv[1], &map, &param);
 	param.map = map;
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "wolf");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
 	init_player(&param);
-	raycasting(&param, 1);
+	raycasting(&param);
 	mlx_put_image_to_window(param.mlx, param.win, param.img, 0, 0);
 	mlx_hook(param.win, 2, 3, repeat_key, &param);
 	mlx_loop(param.mlx);
