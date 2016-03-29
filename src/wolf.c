@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 18:23:06 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/29 19:39:09 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,11 @@ void	raycasting(t_param *param)
 		if (drawend >= HAUTEUR)
 			drawend = HAUTEUR - 1;
 		//7
-		if (param->map.tab[mapx][mapy] == 1)
+		if (side == 0)
+			color = mapx > param->player.posx ? RED : GREEN;
+		else
+			color = mapy > param->player.posy ? BLUE : PURPLE;
+	/*	if (param->map.tab[mapx][mapy] == 1)
 			color = RED;
 		else if (param->map.tab[mapx][mapy] == 2)
 			color = GREEN;
@@ -132,7 +136,7 @@ void	raycasting(t_param *param)
 		else
 			color = YELLOW;
 		if (side == 1)
-			color = color / 2;
+			color = color / 2;*/
 		tmp = 0;
 		while (tmp < drawstart)
 		{
