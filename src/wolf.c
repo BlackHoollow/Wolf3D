@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:58:35 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:05:29 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 19:34:46 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	init_player(t_param *param)
 	player.diry = 0;
 	player.planex = 0;
 	player.planey = 0.66;
+	param->mv_speed = 0.3;
+	param->rot_speed = 0.2;
 	param->player = player;
 }
 

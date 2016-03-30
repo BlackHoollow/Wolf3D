@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:49:09 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 19:44:45 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@
 # define PURPLE 0x800080
 # define CYAN 0x66FFFF
 # define BLACK 0x000000
-# define MVSPEED 0.3
-# define ROTSPEED 0.2
 
 typedef struct	s_player
 {
@@ -98,6 +96,8 @@ typedef struct	s_param
 	int			endian;
 	t_map		map;
 	t_player	player;
+	double		mv_speed;
+	double		rot_speed;
 }				t_param;
 
 /*
@@ -106,6 +106,7 @@ typedef struct	s_param
 
 t_param			*straf_left(t_param *param);
 int				repeat_key(int key, t_param *param);
+int				repeat_key_two(int key, t_param *param);
 void			get_data(t_param *param);
 int				main(int argc, char **argv);
 
@@ -153,5 +154,14 @@ void			ft_four(t_raycast *r, t_param *param);
 void			ft_five(t_raycast *r);
 void			ft_six(t_raycast *r);
 void			ft_seven(t_raycast *r, t_param *param, int x);
+
+/*
+**	hook.c
+*/
+
+t_param			*mv_speed_up(t_param *param);
+t_param			*mv_speed_down(t_param *param);
+t_param			*rot_speed_up(t_param *param);
+t_param			*rot_speed_down(t_param *param);
 
 #endif

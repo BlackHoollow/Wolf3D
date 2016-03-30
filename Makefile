@@ -6,11 +6,11 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/30 17:49:01 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/30 19:24:07 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = core.c utility.c parse2.c wolf.c key.c raycasting.c
+SRC_NAME = core.c utility.c parse2.c wolf.c key.c raycasting.c hook.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
 

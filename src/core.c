@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:51:31 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 19:47:02 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_param	*straf_left(t_param *param)
 {
 	if (param->map.tab[(int)(param->player.posx - param->player.planex *
-				MVSPEED)][(int)(param->player.posy)] == 0)
-		param->player.posx -= param->player.planex * MVSPEED;
+				param->mv_speed)][(int)(param->player.posy)] == 0)
+		param->player.posx -= param->player.planex * param->mv_speed;
 	if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy -
-				param->player.planey * MVSPEED)] == 0)
-		param->player.posy -= param->player.planey * MVSPEED;
+				param->player.planey * param->mv_speed)] == 0)
+		param->player.posy -= param->player.planey * param->mv_speed;
 	return (param);
 }
 
@@ -39,6 +39,21 @@ int		repeat_key(int key, t_param *param)
 		param = straf_right(param);
 	if (key == KEY_A)
 		param = straf_left(param);
+	if (key == 69)
+		param = mv_speed_up(param);
+	if (key == 78)
+		param = mv_speed_down(param);
+	if (key == 24)
+		param = rot_speed_up(param);
+	if (key == 27)
+		param = rot_speed_down(param);
+	return (repeat_key_two(key, param));
+}
+
+int		repeat_key_two(int key, t_param *param)
+{
+	if (key == 36)
+		init_player(param);
 	raycasting(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	return (0);
