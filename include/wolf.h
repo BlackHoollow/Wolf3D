@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:14:04 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:49:09 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@
 # define LARGEUR 1000
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
-# define KEY_UP 126
-# define KEY_DOWN 125
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_A 0
 # define RED 0xFF9999
 # define GREEN 0xCCFF99
 # define BLUE 0x9999FF
@@ -102,6 +104,7 @@ typedef struct	s_param
 **	core.c
 */
 
+t_param			*straf_left(t_param *param);
 int				repeat_key(int key, t_param *param);
 void			get_data(t_param *param);
 int				main(int argc, char **argv);
@@ -140,6 +143,7 @@ t_param			*key_up(t_param *param);
 t_param			*key_down(t_param *param);
 t_param			*key_left(t_param *param);
 t_param			*key_right(t_param *param);
+t_param			*straf_right(t_param *param);
 
 /*
 **	raycasting.c

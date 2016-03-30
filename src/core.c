@@ -6,32 +6,39 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:10:25 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:51:31 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
+t_param	*straf_left(t_param *param)
+{
+	if (param->map.tab[(int)(param->player.posx - param->player.planex *
+				MVSPEED)][(int)(param->player.posy)] == 0)
+		param->player.posx -= param->player.planex * MVSPEED;
+	if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy -
+				param->player.planey * MVSPEED)] == 0)
+		param->player.posy -= param->player.planey * MVSPEED;
+	return (param);
+}
+
 int		repeat_key(int key, t_param *param)
 {
 	if (key == 53)
 		exit(1);
-	if (key == KEY_UP)
-	{
+	if (key == KEY_W)
 		param = key_up(param);
-	}
-	if (key == KEY_DOWN)
-	{
+	if (key == KEY_S)
 		param = key_down(param);
-	}
 	if (key == KEY_RIGHT)
-	{
 		param = key_right(param);
-	}
 	if (key == KEY_LEFT)
-	{
 		param = key_left(param);
-	}
+	if (key == KEY_D)
+		param = straf_right(param);
+	if (key == KEY_A)
+		param = straf_left(param);
 	raycasting(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 17:13:40 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 18:12:39 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:48:57 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,16 @@ t_param		*key_right(t_param *param)
 		param->player.planey * sin(-ROTSPEED);
 	param->player.planey = param->player.oldplanex * sin(-ROTSPEED) +
 		param->player.planey * cos(-ROTSPEED);
+	return (param);
+}
+
+t_param		*straf_right(t_param *param)
+{
+	if (param->map.tab[(int)(param->player.posx + param->player.planex *
+				MVSPEED)][(int)(param->player.posy)] == 0)
+		param->player.posx += param->player.planex * MVSPEED;
+	if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy +
+				param->player.planey * MVSPEED)] == 0)
+		param->player.posy += param->player.planey * MVSPEED;
 	return (param);
 }
