@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 18:43:53 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 17:10:16 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	define_start(t_param *param, t_map *map)
 		{
 			if (map->tab[i][j] == 0)
 			{
-				param->startx = i + 1;
-				param->starty = j + 1;
+				param->startx = i + 0.5;
+				param->starty = j + 0.5;
 				return ;
 			}
 			j++;
@@ -107,18 +107,10 @@ void	check_border(t_map *map)
 	}
 	i = 0;
 	while (i < map->nb_line)
-	{
-		if (map->tab[i][0] == 0)
-			ft_exit();
-		i++;
-	}
+		map->tab[i][0] == 0 ? ft_exit() : i++;
 	i = 0;
 	while (i < map->nb_line)
-	{
-		if (map->tab[i][map->nb_col - 1] == 0)
-			ft_exit();
-		i++;
-	}
+		map->tab[i][map->nb_col - 1] == 0 ? ft_exit() : i++;
 }
 
 void	parsing(char *argv, t_map *map, t_param *param)

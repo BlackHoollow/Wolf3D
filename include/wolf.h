@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 18:23:19 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:14:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@
 # define KEY_RIGHT 124
 # define KEY_UP 126
 # define KEY_DOWN 125
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
+# define RED 0xFF9999
+# define GREEN 0xCCFF99
+# define BLUE 0x9999FF
+# define ORANGE 0xFFCC99
 # define WHITE 0xFFFFFF
-# define YELLOW 0xFFFF00
+# define YELLOW 0xFFFF99
 # define PURPLE 0x800080
-# define CYAN 0x33FFFF
-# define MVSPEED 0.5
+# define CYAN 0x66FFFF
+# define BLACK 0x000000
+# define MVSPEED 0.3
 # define ROTSPEED 0.2
 
 typedef struct	s_player
@@ -48,6 +50,31 @@ typedef struct	s_player
 	double		planex;
 	double		planey;
 }				t_player;
+
+typedef struct	s_raycast
+{
+	double		camerax;
+	double		rayposx;
+	double		rayposy;
+	double		raydirx;
+	double		raydiry;
+	int			mapx;
+	int			mapy;
+	double		sidedistx;
+	double		sidedisty;
+	double		deltadistx;
+	double		deltadisty;
+	double		perpwalldist;
+	int			stepx;
+	int			stepy;
+	int			hit;
+	int			side;
+	int			lineheight;
+	int			drawstart;
+	int			drawend;
+	int			color;
+	int			tmp;
+}				t_raycast;
 
 typedef struct	s_map
 {
@@ -100,6 +127,27 @@ void			parsing(char *argv, t_map *map, t_param *param);
 */
 
 void			init_player(t_param *param);
+void			ft_one(t_raycast *ray, t_param *param, int x);
+void			ft_two(t_raycast *r);
+void			ft_three(t_raycast *r);
 void			raycasting(t_param *param);
+
+/*
+**	key.c
+*/
+
+t_param			*key_up(t_param *param);
+t_param			*key_down(t_param *param);
+t_param			*key_left(t_param *param);
+t_param			*key_right(t_param *param);
+
+/*
+**	raycasting.c
+*/
+
+void			ft_four(t_raycast *r, t_param *param);
+void			ft_five(t_raycast *r);
+void			ft_six(t_raycast *r);
+void			ft_seven(t_raycast *r, t_param *param, int x);
 
 #endif

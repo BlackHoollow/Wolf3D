@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/29 18:23:16 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/30 18:10:25 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,19 @@ int		repeat_key(int key, t_param *param)
 		exit(1);
 	if (key == KEY_UP)
 	{
-		if (param->map.tab[(int)(param->player.posx + param->player.dirx * MVSPEED)][(int)(param->player.posy)] == 0)
-			param->player.posx += param->player.dirx * MVSPEED;
-		if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy + param->player.diry * MVSPEED)] == 0)
-			param->player.posy += param->player.diry * MVSPEED;
+		param = key_up(param);
 	}
-	else if (key == KEY_DOWN)
+	if (key == KEY_DOWN)
 	{
-		if (param->map.tab[(int)(param->player.posx - param->player.dirx * MVSPEED)][(int)(param->player.posy)] == 0)
-			param->player.posx -= param->player.dirx * MVSPEED;
-		if (param->map.tab[(int)(param->player.posx)][(int)(param->player.posy - param->player.diry * MVSPEED)] == 0)
-			param->player.posy -= param->player.diry * MVSPEED;
+		param = key_down(param);
 	}
 	if (key == KEY_RIGHT)
 	{
-		param->player.olddirx = param->player.dirx;
-		param->player.dirx = param->player.dirx * cos(-ROTSPEED) - param->player.diry * sin(-ROTSPEED);
-		param->player.diry = param->player.olddirx * sin(-ROTSPEED) + param->player.diry * cos(-ROTSPEED);
-		param->player.oldplanex = param->player.planex;
-		param->player.planex = param->player.planex * cos(-ROTSPEED) - param->player.planey * sin(-ROTSPEED);
-		param->player.planey = param->player.oldplanex * sin(-ROTSPEED) + param->player.planey * cos(-ROTSPEED);
+		param = key_right(param);
 	}
-	else if (key == KEY_LEFT)
+	if (key == KEY_LEFT)
 	{
-		param->player.olddirx = param->player.dirx;
-		param->player.dirx = param->player.dirx * cos(ROTSPEED) - param->player.diry * sin(ROTSPEED);
-		param->player.diry = param->player.olddirx * sin(ROTSPEED) + param->player.diry * cos(ROTSPEED);
-		param->player.oldplanex = param->player.planex;
-		param->player.planex = param->player.planex * cos(ROTSPEED) - param->player.planey * sin(ROTSPEED);
-		param->player.planey = param->player.oldplanex * sin(ROTSPEED) + param->player.planey * cos(ROTSPEED);
+		param = key_left(param);
 	}
 	raycasting(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
