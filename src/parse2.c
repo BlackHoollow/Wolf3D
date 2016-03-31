@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 19:19:04 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:44:14 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,17 @@ t_map	*count_line_col(int fd, t_map *map)
 		i = 0;
 		split = ft_strsplit(line, ' ');
 		while (split[i] != NULL)
-			i++;
-		map->nb_line = 1;
-		map->nb_col = i;
-	}
-	ft_strdel(&line);
-	while (get_next_line(fd, &line) == 1)
-	{
-		i = 0;
-		split = ft_strsplit(line, ' ');
-		while (split[i] != NULL)
 		{
 			ft_strdel(&split[i]);
 			i++;
 		}
-		map->nb_line = map->nb_line + 1;
-		if (i != map->nb_col)
-			ft_exit();
+		map->nb_line = 1;
+		map->nb_col = i;
 		ft_strdel(&line);
+	}
+	while (get_next_line(fd, &line) == 1)
+	{
+		map = count_bis(map, line);
 	}
 	return (map);
 }
@@ -126,7 +119,7 @@ void	parsing(char *argv, t_map *map, t_param *param)
 
 	map->nb_line = 0;
 	map->nb_col = 0;
-	if ((fd = open(argv, O_RDONLY)) == -1)
+	if ((fd = open(argv, O_RDONLY)) < 0)
 		ft_exit();
 	map = count_line_col(fd, map);
 	map->tab = (int **)malloc(sizeof(int *) * (map->nb_line));

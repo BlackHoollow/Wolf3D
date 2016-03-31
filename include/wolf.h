@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 15:53:43 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:27:47 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int				main(int argc, char **argv);
 
 void			ft_exit(void);
 void			draw_px(int x, int y, int color, t_param *param);
+t_map			*count_bis(t_map *map, char *line);
 
 /*
 **	parse2.c
