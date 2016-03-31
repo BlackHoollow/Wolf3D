@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 15:53:37 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 19:19:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,20 @@ t_map	*count_line_col(int fd, t_map *map)
 		map->nb_line = 1;
 		map->nb_col = i;
 	}
+	ft_strdel(&line);
 	while (get_next_line(fd, &line) == 1)
 	{
 		i = 0;
 		split = ft_strsplit(line, ' ');
 		while (split[i] != NULL)
+		{
+			ft_strdel(&split[i]);
 			i++;
+		}
 		map->nb_line = map->nb_line + 1;
 		if (i != map->nb_col)
 			ft_exit();
+		ft_strdel(&line);
 	}
 	return (map);
 }
@@ -56,8 +61,10 @@ t_map	*split_tab(t_map *map, int fd)
 		while (split[j] != NULL)
 		{
 			map->tab[i][j] = ft_atoi(split[j]);
+			ft_strdel(&split[j]);
 			j++;
 		}
+		ft_strdel(&line);
 		i++;
 	}
 	return (map);
