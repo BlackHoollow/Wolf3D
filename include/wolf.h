@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 19:44:45 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:53:43 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <mlx.h>
 # include "libft.h"
 
-# define HAUTEUR 1000
-# define LARGEUR 1000
+# define HAUTEUR 1200
+# define LARGEUR 1200
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_W 13

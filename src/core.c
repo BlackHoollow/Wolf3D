@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 15:12:19 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:53:41 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int		main(int argc, char **argv)
 	t_param		param;
 	t_map		map;
 
-	argc = argc + 0;
+	if (argc != 2)
+		ft_exit();
 	param.mlx = mlx_init();
 	parsing(argv[1], &map, &param);
 	param.map = map;

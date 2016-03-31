@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 19:14:01 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 19:36:42 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/31 15:17:47 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_param		*mv_speed_up(t_param *param)
 {
-	if (param->mv_speed <= 1.4)
+	if (param->mv_speed <= 0.9)
 		param->mv_speed = param->mv_speed + 0.1;
 	return (param);
 }
