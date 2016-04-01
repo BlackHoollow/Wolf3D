@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/04/01 15:47:26 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:56:54 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		repeat_key(int key, t_param *param)
 
 int		repeat_key_two(int key, t_param *param)
 {
-	if (key == 36)
+	if (key == 82)
 		init_player(param);
 	if (key == 65)
 	{
