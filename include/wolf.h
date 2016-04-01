@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:43:37 by nromptea          #+#    #+#             */
-/*   Updated: 2016/04/01 14:11:57 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:16:39 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,14 @@ typedef struct	s_map
 	int			**tab;
 }				t_map;
 
+typedef struct	s_color
+{
+	int			color1;
+	int			color2;
+	int			color3;
+	int			color4;
+}				t_color;
+
 typedef struct	s_param
 {
 	void		*mlx;
@@ -98,6 +106,8 @@ typedef struct	s_param
 	t_player	player;
 	double		mv_speed;
 	double		rot_speed;
+	int			wich_color;
+	t_color		color;
 }				t_param;
 
 /*
@@ -118,6 +128,7 @@ void			ft_exit(void);
 void			ft_free(t_param *param);
 void			draw_px(int x, int y, int color, t_param *param);
 t_map			*count_bis(t_map *map, char *line);
+t_param			*get_color(t_param *param);
 
 /*
 **	parse2.c

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/04/01 14:11:25 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:47:26 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ int		repeat_key_two(int key, t_param *param)
 {
 	if (key == 36)
 		init_player(param);
+	if (key == 65)
+	{
+		if (param->wich_color == 0)
+			param->wich_color = 1;
+		else if (param->wich_color == 1)
+			param->wich_color = 2;
+		else if (param->wich_color == 2)
+			param->wich_color = 0;
+		param = get_color(param);
+	}
 	raycasting(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 17:45:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/30 19:23:53 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 15:49:58 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ void	ft_six(t_raycast *r)
 void	ft_seven(t_raycast *r, t_param *param, int x)
 {
 	if (r->side == 0)
-		r->color = r->mapx > param->player.posx ? RED : GREEN;
+		r->color = r->mapx > param->player.posx ?
+			param->color.color1 : param->color.color2;
 	else
-		r->color = r->mapy > param->player.posy ? ORANGE : BLUE;
+		r->color = r->mapy > param->player.posy ?
+			param->color.color3 : param->color.color4;
 	r->tmp = 0;
 	while (r->tmp < r->drawstart)
 	{
