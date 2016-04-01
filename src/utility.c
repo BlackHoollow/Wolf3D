@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:26:51 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 19:26:27 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 14:15:14 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ void	draw_px(int x, int y, int color, t_param *param)
 	get_data(param);
 	*(int *)(unsigned long)(param->str_img + (param->size_line * y) +
 			(x * param->bits / 8)) = color;
+}
+
+void	ft_free(t_param *param)
+{
+	int		i;
+
+	i = 0;
+	while (i < param->map.nb_line)
+	{
+		free(param->map.tab[i]);
+		i++;
+	}
+	exit(1);
 }
 
 t_map	*count_bis(t_map *map, char *line)

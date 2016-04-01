@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/31 15:53:41 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/04/01 14:11:25 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_param	*straf_left(t_param *param)
 int		repeat_key(int key, t_param *param)
 {
 	if (key == 53)
-		exit(1);
+		ft_free(param);
 	if (key == KEY_W)
 		param = key_up(param);
 	if (key == KEY_S)
